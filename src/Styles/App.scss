@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Fira+Sans&family=Fragment+Mono:ital@1&family=Luckiest+Guy&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Oswald&family=Patrick+Hand&family=Philosopher:ital,wght@0,700;1,700&family=Roboto&family=Sorts+Mill+Goudy&family=Source+Code+Pro:wght@300&family=Syne+Mono&family=Titan+One&display=swap');
+@import "colors";
 
 *{
     margin: 0;
@@ -8,3 +9,26 @@
 body{
     overflow-x: hidden;
 }
+.loader {
+    background-color: $yellow;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 100;
+    img {
+      width: 10rem;
+      animation: loadingAnimation 0.5s linear infinite alternate;
+    }
+  }
+  @keyframes loadingAnimation {
+    to {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+  

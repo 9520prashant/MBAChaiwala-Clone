@@ -5,7 +5,7 @@
             margin-top: 0%;
             height:100vh;
             object-fit: cover;
-            
+            display: none;
         }
         div{
             height: inherit;
@@ -23,6 +23,11 @@
         &:hover{
             transform: translateX(-50%) skewX(-10deg);
         }
+    }
+    .logo > img{
+        
+        height: 40px;
+        width: 60px;
     }
     footer{
         padding:13rem 0;

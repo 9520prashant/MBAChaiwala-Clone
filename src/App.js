@@ -6,6 +6,7 @@ import "./Styles/Misc.scss"
 import "./Styles/MediaQuery.scss"
 import IntroVideo from "./Components/IntroVideo";
 import Section from "./Components/Section";
+import Loader from "./Components/Loader";
 import freshTopicImg from "./Assets/academy.png";
 import freshTopic2Img from "./Assets/story.png";
 import tedTalksImg from "./Assets/in-the-news.gif";
@@ -18,7 +19,7 @@ import chaiwalaImg from "./Assets/image3.png";
 import data from "./Data/data.json";
 import Footer from "./Components/Footer"
 import Misc from "./Components/Misc"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 
 const yellow = "#fff100", pink='#ed1e79', white="#fff", brown="#6d3d0f";
@@ -26,7 +27,7 @@ const yellow = "#fff100", pink='#ed1e79', white="#fff", brown="#6d3d0f";
 function App() {
 
   const {freshTopic, freshTopic2, tedTalks, franchise, map, courses, album, barat, chaiwala} = data;
-
+  const [loading, setLoading] = useState(true);
   const dotCurser = (e)=>{
     const cursor = document.querySelector(".cursor");
     cursor.style.top= `${e.pageY - 14}px`;
@@ -45,7 +46,9 @@ function App() {
 
     }
   }
-
+  setTimeout(() => {
+    setLoading(false);
+  }, 3000);
   useEffect(()=>{
     window.addEventListener('mousemove',dotCurser)
     return ()=>{
@@ -55,6 +58,7 @@ function App() {
 
   return (
     <>
+      {loading && <Loader/>}
       <IntroVideo/>
       {/* FreshTopic -1 */}
       <Section h3={freshTopic.heading}
